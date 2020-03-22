@@ -1,0 +1,22 @@
+{
+  "name": "back-express",
+  "version": "1.0.0",
+  "description": "a personal test of a dockerised full MERN stack for future personal projects",
+  "main": "back.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/npasquie/MERN_stack.git"
+  },
+  "author": "Nicolas Pasquier",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/npasquie/MERN_stack/issues"
+  },
+  "homepage": "https://github.com/npasquie/MERN_stack#readme",
+  "dependencies": {
+    "mongoose": "^5.9.5"
+  }
+}

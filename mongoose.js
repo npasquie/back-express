@@ -45,7 +45,10 @@ db.once('open', function() {
     });
 
     //search the db
-    Kitten.find({ name: /^fluff/ }, console.log());
+    Kitten.find({ name: /^fluff/ }, (err, kittens) => {
+        if (err) return console.error(err);
+        console.log(kittens);
+    });
 
     console.log("script is done");
 });

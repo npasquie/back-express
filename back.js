@@ -2,7 +2,9 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/test', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://localhost:27017/test', {useNewUrlParser: true, useUnifiedTopology: true},
+    () => {console.log("connection established")})
+    .catch(error => handleError(error));
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -23,11 +25,11 @@ db.once('open', function() {
         findCats(res);
     }).use(function(req, res){
         res.setHeader('Content-Type', 'text/plain');
-        res.status(404).send('Erreur 404');
+        res.status(404).send('Error 404');
     });
     //best practice reminder : add next argument and next() call at end of the get calls
 
     app.listen(3000, function () {
-        console.log('Example app listening on port 3000!')
+        console.log('Express-js listening on port 3000')
     });
 });

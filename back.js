@@ -1,8 +1,10 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
+require('dotenv').config;
 
-mongoose.connect('mongodb://mongo:27017/test', {useNewUrlParser: true, useUnifiedTopology: true},
+mongoose.connect(`mongodb://${process.env.MONGO_NAME}:${process.env.MONGO_PORT}/${process.env.DB_NAME}`,
+    {useNewUrlParser: true, useUnifiedTopology: true},
     () => {console.log("connection established")})
     .catch(error => handleError(error));
 let db = mongoose.connection;

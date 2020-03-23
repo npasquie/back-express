@@ -1,6 +1,9 @@
 FROM node:lts
 WORKDIR ./
 COPY package.json yarn.lock ./
-RUN yarn install --production
+RUN yarn install
 COPY . .
-CMD ["node", "back.js"]
+RUN if ["$NODE_ENV" = "development"]; \
+    then nodemon back.js; \
+    else node back.js;
+    fi

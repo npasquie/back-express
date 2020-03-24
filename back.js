@@ -1,7 +1,6 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-require('dotenv').config;
 
 mongoose.connect(`mongodb://${process.env.MONGO_NAME}:${process.env.MONGO_PORT}/${process.env.DB_NAME}`,
     {useNewUrlParser: true, useUnifiedTopology: true},
@@ -18,7 +17,7 @@ db.once('open', function() {
         let resp = "";
         Kitten.find().exec( (err, kittens) => {
             if (err) return console.error(err);
-            kittens.forEach(cat => {resp += cat.name + " ";});
+            kittens.forEach(cat => {resp += cat.name + " lol ";});
             res.send(resp);
         });
     }
